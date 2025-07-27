@@ -1,0 +1,488 @@
+/* --- Reset Básico e Estilos Globais --- */
+body {
+    background: linear-gradient(rgb(1, 5, 56), #00234d);
+    min-height: 100vh;
+    margin: 0;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-family: 'Arial', sans-serif; /* Boas práticas: usar fallback font */
+    line-height: 1.6; /* Melhora a legibilidade do texto */
+}
+
+/* Remove estilos padrão de listas */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilo para links genéricos */
+a {
+    color: inherit; /* Links herdam a cor do pai */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* --- Header e Navegação --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px; /* Mais padding nas laterais */
+    background-color: rgb(0, 3, 36);
+    position: fixed; /* Fixa o header no topo */
+    width: 100%; /* Ocupa toda a largura */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Garante que o header fique acima de outros elementos */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+    box-sizing: border-box; /* Garante que padding e border não aumentem a largura total */
+}
+
+header h1 {
+    font-size: 2.2rem; /* Levemente menor para equilíbrio */
+    margin: 0;
+    color: white;
+    white-space: nowrap; /* Tenta manter o texto em uma única linha */
+    min-width: fit-content; /* Garante que o elemento tenha pelo menos o tamanho do seu conteúdo */
+}
+
+nav ul {
+    display: flex;
+    gap: 25px; /* Aumenta o espaçamento entre os itens */
+    flex-wrap: nowrap; /* Tenta manter os itens da navegação em uma única linha */
+}
+
+nav a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-weight: bold; /* Deixa os links mais destacados */
+    transition: color 0.3s ease; /* Transição suave na cor */
+}
+
+nav a:hover {
+    color: #6A5ACD; /* Cor de destaque ao passar o mouse */
+    text-decoration: none; /* Remove sublinhado no hover, se preferir */
+}
+
+/* --- Conteúdo Principal e Seções --- */
+main {
+    padding-top: 100px; /* Adiciona padding no topo para o conteúdo não ficar sob o header fixo */
+    max-width: 1000px; /* Aumenta a largura máxima para as seções */
+    margin: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+section {
+    padding: 60px 0; /* Espaçamento vertical entre as seções */
+    text-align: center; /* Centraliza o conteúdo das seções por padrão */
+}
+
+section h2 {
+    font-size: 2.5rem;
+    color: #6A5ACD; /* Cor de destaque para títulos de seção */
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+section h2::after { /* Linha decorativa abaixo do título */
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80px;
+    height: 3px;
+    background-color: #BA55D3;
+}
+
+/* --- Seção de Apresentação (Hero) --- */
+#home.apresentacao-flex { /* Use o ID para maior especificidade */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px; /* Aumenta o espaçamento */
+    padding: 80px 30px; /* Mais padding para a seção principal */
+    flex-wrap: wrap;
+    min-height: calc(100vh - 100px); /* Ajusta a altura mínima para ocupar a tela */
+}
+
+.foto-perfil img {
+    width: 280px; /* Levemente maior */
+    height: 280px; /* Levemente maior */
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid #6A5ACD; /* Borda um pouco mais grossa */
+    box-shadow: 0 0 30px rgba(106, 90, 205, 0.7); /* Sombra mais pronunciada */
+}
+
+.info-perfil {
+    text-align: center; /* Centraliza para o layout principal */
+    max-width: 550px; /* Aumenta a largura máxima */
+}
+
+.info-perfil p {
+    font-size: 1.3rem; /* Levemente maior */
+    color: white;
+    margin-bottom: 10px;
+}
+
+.info-perfil h2 { /* Esse h2 é diferente do h2 das seções */
+    font-size: 3.5rem; /* Título maior e impactante */
+    color: white;
+    margin-top: 0;
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+
+/* --- Estilizando o Botão do GitHub corretamente --- */
+.botao-github {
+    /* O botão em si será transparente ou sem borda */
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-block; /* Para que o link dentro se ajuste */
+}
+
+.botao-github a {
+    background-color: #6A5ACD; /* Cor de fundo no link */
+    color: white;
+    padding: 15px 30px; /* Padding maior para o link */
+    border-radius: 8px; /* Cantos mais arredondados */
+    font-weight: bold;
+    font-size: 1.2rem; /* Fonte maior */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block; /* Faz o link se comportar como um bloco para o padding */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra no botão */
+}
+
+.botao-github a:hover {
+    background-color: #BA55D3;
+    transform: translateY(-3px); /* Efeito de "levantar" */
+    text-decoration: none; /* Garante que não sublinhe no hover */
+}
+
+/* --- Seção "Sobre Mim" --- */
+#sobre p {
+    font-size: 1.15rem;
+    max-width: 700px;
+    margin: 20px auto; /* Centraliza parágrafos */
+    color: #f0f0f0;
+}
+
+.paragrafo-sobre { /* Estilo específico para o segundo parágrafo */
+    font-size: 1.3rem; /* Mais destaque */
+    font-weight: 300;
+}
+
+
+/* --- Seção "Projetos" --- */
+.lista-projetos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid responsivo de 2+ colunas */
+    gap: 30px; /* Espaçamento entre os projetos */
+    padding: 20px 0;
+}
+
+.projeto-item {
+    background-color: rgba(255, 255, 255, 0.05); /* Fundo sutil para cada item */
+    border-radius: 10px;
+    overflow: hidden; /* Garante que a imagem não vaze */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Para centralizar o conteúdo interno */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.projeto-item:hover {
+    transform: translateY(-5px); /* Efeito de "levantar" no hover */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.projeto-item a {
+    display: block; /* Faz o link preencher todo o cartão */
+    color: white; /* Garante que o texto seja branco */
+    padding-bottom: 20px; /* Espaçamento abaixo do título */
+}
+
+.projeto-item img {
+    width: 100%;
+    height: 220px; /* Altura fixa para as imagens */
+    object-fit: cover; /* Recorta a imagem para preencher sem distorcer */
+    border-bottom: 3px solid #6A5ACD; /* Linha de separação */
+    margin-bottom: 15px; /* Espaçamento entre imagem e título */
+}
+
+.projeto-item h3 {
+    font-size: 1.6rem;
+    margin: 0;
+    padding: 0 15px; /* Padding para o título dentro do item */
+}
+
+/* --- Seção "Contato" --- */
+#contato p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+#contato p a {
+    display: inline-flex; /* Permite alinhar o ícone e o texto */
+    align-items: center;
+    gap: 10px; /* Espaço entre o ícone e o texto */
+    color: #6A5ACD; /* Cor de destaque para os links de contato */
+    transition: color 0.3s ease;
+}
+
+#contato p a:hover {
+    color: #BA55D3;
+    text-decoration: none;
+}
+
+.icone-contato {
+    width: 24px; /* Tamanho dos ícones */
+    height: 24px;
+    vertical-align: middle; /* Alinha o ícone com o texto */
+    filter: invert(100%); /* Transforma ícones escuros em brancos para o fundo escuro */
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
+    background-color: rgb(0, 3, 36);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+/* --- Seção de Habilidades --- */
+#habilidades {
+    padding: 60px 0;
+    text-align: center;
+}
+
+#habilidades h2 {
+    font-size: 2.5rem;
+    color: #6A5ACD;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+#habilidades h2::after { /* Linha decorativa abaixo do título */
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80px;
+    height: 3px;
+    background-color: #BA55D3;
+}
+
+.habilidades-container {
+    display: grid; /* Usaremos Grid para um layout responsivo */
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* 3-5 colunas, responsivas */
+    gap: 30px; /* Espaçamento entre os itens */
+    max-width: 900px; /* Limite de largura para o container */
+    margin: 0 auto; /* Centraliza o container */
+    padding: 20px;
+}
+
+.habilidade-item {
+    background-color: rgba(255, 255, 255, 0.08); /* Fundo sutil para o item */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex; /* Flex para alinhar imagem e texto verticalmente */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+
+    /* Estilos para Tooltip Customizado (Aparecendo embaixo) */
+    position: relative; /* Essencial para posicionar o tooltip */
+    overflow: visible; /* Garante que o tooltip não seja cortado */
+    padding-bottom: 30px; /* Adiciona um pouco mais de espaço embaixo do item para o tooltip */
+}
+
+.habilidade-item:hover {
+    transform: translateY(-5px); /* Efeito de "levantar" */
+    background-color: rgba(106, 90, 205, 0.15); /* Cor de fundo no hover */
+}
+
+.habilidade-item img {
+    width: 60px; /* Tamanho dos ícones */
+    height: 60px;
+    margin-bottom: 15px; /* Espaçamento entre ícone e texto */
+    filter: drop-shadow(0 0 5px rgba(106, 90, 205, 0.5)); /* Sombra sutil no ícone */
+}
+
+.habilidade-item h3 {
+    font-size: 1.2rem;
+    color: white;
+    margin: 0;
+}
+
+/* Estilos para o Tooltip Customizado */
+.habilidade-tooltip {
+    visibility: hidden; /* Esconde o tooltip por padrão */
+    opacity: 0; /* Começa transparente */
+    width: 160px; /* Largura da caixa do tooltip */
+    background-color: #333; /* Cor de fundo do tooltip */
+    color: #fff; /* Cor do texto */
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px 5px; /* Adicionado um pequeno padding lateral para o texto */
+    position: absolute; /* Posicionamento absoluto em relação ao pai (.habilidade-item) */
+    z-index: 1; /* Garante que fique acima de outros elementos */
+    top: 100%; /* Posiciona o topo do tooltip na base do item pai */
+    left: 50%;
+    transform: translateX(-50%) translateY(10px); /* Centraliza e começa um pouco abaixo para o slide-down */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transição suave */
+    font-size: 0.9em; /* Tamanho da fonte menor */
+    line-height: 1.4;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra para o tooltip */
+}
+
+.habilidade-tooltip::after { /* Cria uma pequena seta na parte SUPERIOR do tooltip */
+    content: "";
+    position: absolute;
+    bottom: 100%; /* Posiciona a seta na parte superior do tooltip */
+    left: 50%;
+    margin-left: -5px; /* Centraliza a seta */
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #333 transparent; /* Define a cor da seta e a direção */
+}
+
+.habilidade-item:hover .habilidade-tooltip {
+    visibility: visible; /* Torna o tooltip visível no hover */
+    opacity: 1; /* Torna opaco */
+    transform: translateX(-50%) translateY(0); /* Move para a posição final (sem o slide inicial) */
+}
+
+
+/* --- Responsividade (Media Queries) --- */
+@media (max-width: 1024px) {
+    main {
+        max-width: 900px; /* Ajusta largura para telas grandes, mas não gigantes */
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px 20px;
+        position: static; /* Remove fixed position for small screens if desired */
+        box-shadow: none;
+        align-items: center; /* Centraliza itens na coluna */
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+        white-space: normal; /* Permite que o título quebre em várias linhas novamente, se necessário */
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        width: 100%;
+    }
+
+    nav a {
+        padding: 5px 0;
+    }
+
+    main {
+        padding-top: 20px; /* Remove extra padding if header is not fixed */
+    }
+
+    #home.apresentacao-flex {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+        padding: 50px 20px;
+        min-height: auto; /* Remove min-height para não empurrar demais */
+    }
+
+    .info-perfil {
+        text-align: center;
+        margin-top: 0;
+    }
+
+    .info-perfil h2 {
+        font-size: 2.5rem;
+    }
+
+    .foto-perfil img {
+        width: 200px;
+        height: 200px;
+    }
+
+    section {
+        padding: 40px 0;
+    }
+
+    section h2 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .lista-projetos {
+        grid-template-columns: 1fr; /* Uma única coluna para projetos em telas menores */
+    }
+
+    /* Responsividade para a seção de Habilidades em telas menores */
+    .habilidades-container {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Mais colunas em telas menores */
+        gap: 20px;
+    }
+
+    .habilidade-item img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .habilidade-item h3 {
+        font-size: 1.1rem;
+    }
+
+    /* Ajustes para o tooltip em telas menores */
+    .habilidade-tooltip {
+        width: 120px; /* Diminui a largura em telas menores */
+        margin-left: -60px; /* Ajusta a centralização */
+        padding: 8px 5px;
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .info-perfil h2 {
+        font-size: 2rem;
+    }
+
+    .botao-github a {
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+
+    /* Responsividade para a seção de Habilidades em telas muito pequenas */
+    .habilidades-container {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Ajusta para telas muito pequenas */
+    }
+}
